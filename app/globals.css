@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background-color: #0a0c10;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0c10;
+  color: #edeff4;
+}
+
+::selection {
+  background-color: #ff8a4c;
+  color: #0a0c10;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #ff8a4c;
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0c10;
+}
+::-webkit-scrollbar-thumb {
+  background: #242a37;
+  border-radius: 999px;
+}
+
+@layer utilities {
+  /* faint engineering-paper grid, fading out toward the edges */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(237, 239, 244, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(237, 239, 244, 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  }
+  .text-gradient {
+    background-image: linear-gradient(100deg, #ffb68a 0%, #ff8a4c 45%, #4fd1c5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* Form controls shared by the contact form and the admin panel */
+.field {
+  width: 100%;
+  border: 1px solid #242a37;
+  background: #0a0c10;
+  padding: 0.55rem 0.75rem;
+  color: #edeff4;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+.field::placeholder {
+  color: rgba(237, 239, 244, 0.3);
+}
+.field:focus {
+  border-color: rgba(255, 138, 76, 0.7);
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 138, 76, 0.6);
+  padding: 0.6rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #ffb68a;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+.btn:hover:not(:disabled) {
+  border-color: #ff8a4c;
+  background-color: rgba(255, 138, 76, 0.12);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-solid {
+  background-color: #ff8a4c;
+  border-color: #ff8a4c;
+  color: #0a0c10;
+}
+.btn-solid:hover:not(:disabled) {
+  background-color: #ffb68a;
+  border-color: #ffb68a;
+}
+.btn-ghost {
+  border-color: #242a37;
+  color: rgba(237, 239, 244, 0.8);
+}
+.btn-ghost:hover:not(:disabled) {
+  border-color: rgba(237, 239, 244, 0.4);
+  background-color: rgba(237, 239, 244, 0.05);
+}
